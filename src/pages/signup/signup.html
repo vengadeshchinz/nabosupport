@@ -1,0 +1,44 @@
+
+    
+<ion-content class="signup" padding center text-center>
+   
+  
+   <ion-title color="wht">Sign Up</ion-title>
+   <img src="assets/imgs/logo.png">
+      <ion-list>
+        <!--sign in form input field start-->
+        <form [formGroup]="form" (ngSubmit)="signup()" >
+         <ion-item>
+           <ion-label  floating><ion-icon name="contact"></ion-icon> Username</ion-label>
+           <ion-input formControlName="username" focuser id="usersignup" type="text" [(ngModel)]="userData.username"></ion-input>
+          
+        </ion-item>
+        <div *ngIf="username.touched && username.invalid" class="alertstyle">
+          <div *ngIf="username.errors.required">Please provide a username</div>
+        </div>
+
+        <ion-item>
+          <ion-label floating><ion-icon name="mail"></ion-icon> Email</ion-label>
+          <ion-input formControlName="mail" type="text" [(ngModel)]="userData.email_id"></ion-input>
+        </ion-item>
+        <div *ngIf="mail.touched && mail.invalid" class="alertstyle">
+         <!-- <div *ngIf="mail.errors.required">Email is required</div>-->
+          <div *ngIf="mail.errors.email">Invaild email format</div>
+        </div>
+
+        <ion-item>
+          <ion-label floating><ion-icon name="lock"></ion-icon> Password</ion-label>
+          <ion-input formControlName="password" type="password" [(ngModel)]="userData.password"></ion-input>
+        </ion-item>
+        <div *ngIf="password.touched && password.invalid" class="alertstyle">
+          <div *ngIf="password.errors.required">Please provide a password</div>
+         
+        </div>
+       
+        <button ion-button type="submit" class="sign_btn"   round full>Create Account</button>
+        </form>
+         <!--sign in form input field end-->
+        <span class="acc">ALREADY HAVE AN ACCOUNT?</span> <a href="#" (click)="login()">SIGN IN</a>
+      </ion-list>
+    
+</ion-content>

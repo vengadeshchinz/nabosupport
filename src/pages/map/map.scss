@@ -1,0 +1,27 @@
+/*##css for map page##*/
+.ios, .md {
+    
+    page-map {
+    
+         .scroll {
+           height: 100%
+         }
+    
+         #map {
+           width: 100%;
+           height: 100%;
+         }
+         button.map_btn {
+          position: absolute;
+          background-color:#fff;
+          color: #000000;
+          bottom: 116px;
+          right: 0px;
+      }
+      ion-icon.icon.icon-md.ion-ios-locate-outline {
+        margin-right: 0px;
+    }
+    
+       }
+    
+   }

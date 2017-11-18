@@ -1,0 +1,10 @@
+page-shop {
+    ion-segment-button.segment-button.segment-activated {
+        background-color: rgba(255, 255, 255, 0.14);
+        border-bottom: 2px solid #fff4f4 !important;
+        color: #fff;
+    }
+    ion-segment-button.segment-button {
+        color: #fff !important;
+    }
+}

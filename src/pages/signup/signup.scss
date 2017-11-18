@@ -1,0 +1,54 @@
+/*##css for sign up page##*/
+page-signup {
+    .toolbar-title.toolbar-title-md {
+        color: #fff;
+        font-family: inherit;
+        margin: 12px;
+    }
+}
+button.sign_btn.disable-hover.button.button-md.button-default.button-default-md.button-round.button-round-md.button-full.button-full-md {
+    background-color: rgba(169, 169, 169, 0);
+    border: 1px solid #fff;
+    margin: 16px 0px 16px 0px;
+    padding: 24px 0px;
+}
+ion-item.item.item-block.item-md.item-input.item-label-floating.ng-untouched.ng-pristine.ng-valid {
+    background-color: rgba(127, 255, 212, 0);
+}
+.item.item-block.item-md.item-input.item-label-floating.ng-untouched.ng-valid.input-has-focus.item-input-has-focus.ng-dirty {
+    background-color: rgba(255, 255, 255, 0);
+    }
+ion-item.ng-touched {
+    background-color: rgba(127, 255, 212, 0);
+}
+ion-label#lbl-2 {
+    color: #fff;
+}
+
+ion-label#lbl-3 {
+    color: #fff;
+}
+ion-label#lbl-4 {
+    color: #fff;
+}
+ion-item.item.item-block.item-md.item-input.item-label-floating.ng-untouched.ng-pristine.ng-invalid {
+    background-color: rgba(127, 255, 212, 0);
+}
+.item.item-block.item-md.item-input.item-label-floating.ng-untouched.ng-invalid.input-has-value.item-input-has-value.ng-dirty {
+    background-color: rgba(127, 255, 212, 0);
+    }
+.alertstyle {
+    color: #ff9c9c;
+}
+ion-content.signup span.acc {
+    color: #dbdfe4;
+    font-size: 10px;
+    padding: 16px;
+}
+ion-content{
+    background-image: url('../assets/imgs/bg.png');
+  //background-color: #000 !important;
+ }
+ .item.item-block.item-md.item-input.item-label-floating.ng-untouched.ng-invalid.ng-dirty {
+    background-color: rgba(245, 245, 220, 0);
+    }

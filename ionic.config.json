@@ -1,0 +1,14 @@
+{
+  "name": "nabosupport",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  },
+  "proxies": [
+    {
+      "path": "/naboSupport",
+      "proxyUrl": "http://rayi.in/naboSupport"
+    }
+  ]
+}

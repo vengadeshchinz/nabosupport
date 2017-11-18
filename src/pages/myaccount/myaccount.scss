@@ -1,0 +1,128 @@
+/*##css for myaccount page##*/
+.ios, .md {
+    
+    page-myaccount {
+        input.text-input.text-input-md {
+            padding-left: 0px;
+            font-size: 14px;
+            margin-bottom: 1px;
+        }
+         .scroll {
+           height: 100%
+         }
+    
+         #map {
+           width: 100%;
+           height: 50%;
+         }
+    
+       }
+    
+   }
+   page-myaccount {
+    .toolbar-title.toolbar-title-md {
+        color: rgb(0, 0, 0);
+        font-family: inherit;
+        margin: 12px;
+    }
+}
+button.sign_btn.disable-hover.button.button-md.button-default.button-default-md.button-round.button-round-md.button-full.button-full-md {
+    background-color: rgba(169, 169, 169, 0);
+    border: 1px solid #fff;
+    margin: 16px 0px 16px 0px;
+    padding: 24px 0px;
+}
+ion-item.item.item-block.item-md.item-input.ng-untouched.ng-dirty.ng-valid.input-has-value.item-input-has-value {
+    background-color: rgba(255, 255, 255, 0);
+}
+ion-item.item.item-block.item-md {
+    background-color: rgba(0, 255, 255, 0);
+}
+ion-item.item.item-block.item-md.item-input.item-label-floating.ng-untouched.ng-pristine.ng-valid {
+    background-color: rgba(127, 255, 212, 0);
+}
+.item.item-block.item-md.item-input.item-label-floating.ng-untouched.ng-valid.input-has-focus.item-input-has-focus.ng-dirty {
+    background-color: rgba(255, 255, 255, 0);
+    }
+ion-item.ng-touched {
+    background-color: rgba(127, 255, 212, 0);
+}
+ion-label#lbl-2 {
+    color: #fff;
+}
+
+ion-label#lbl-3 {
+    color: #fff;
+}
+ion-label#lbl-4 {
+    color: #fff;
+}
+ion-label#lbl-5 {
+    color: #fff;
+}
+ion-item.item.item-block.item-md.item-input.item-label-floating.ng-untouched.ng-pristine.ng-invalid {
+    background-color: rgba(127, 255, 212, 0);
+}
+.item.item-block.item-md.item-input.item-label-floating.ng-untouched.ng-invalid.input-has-value.item-input-has-value.ng-dirty {
+    background-color: rgba(127, 255, 212, 0);
+    }
+.alertstyle {
+    color: #ff9c9c;
+}
+ion-content.signup span.acc {
+    color: #dbdfe4;
+    font-size: 10px;
+    padding: 16px;
+}
+ion-content{
+    background-image: url('../assets/imgs/bg.png');
+  //background-color: #000 !important;
+ }
+ .item.item-block.item-md.item-input.item-label-floating.ng-untouched.ng-invalid.ng-dirty {
+    background-color: rgba(245, 245, 220, 0);
+    }
+
+ion-icon{
+      display: inline-block;
+      font-size: 2.3em;
+      margin-right: 20px;
+  }
+  input.text-input.text-input-md{
+      margin-top:0px;
+      padding-left: 45px;
+  }
+  img.pimg{
+    width: 35%;
+    height: 35%;
+    border-radius: 50%;
+  }
+  .scroll {
+    height: 100%
+  }
+
+  #map {
+    width: 100%;
+    height: 100%;
+  }
+  ion-icon.icon.icon-md.ion-md-create {
+    margin-right: 0px;
+}
+button.fab.fab-md {
+    background-color: rgba(132, 132, 82, 0);
+    border: 1px solid;
+}
+ion-icon.icon.icon-md.ion-ios-camera-outline {
+    margin-right: 0px;
+}
+
+ion-icon.icon.icon-md.ion-md-checkmark {
+    margin-right: 0px;
+}
+button.signbtn.fab.fab-md {
+    position: relative;
+    top: -44px;
+}
+
+ion-icon.icon.icon-md.ion-md-close {
+    margin-right: 0px;
+}

@@ -1,0 +1,18 @@
+page-security {
+    ion-item#mySecurityDevices-list-item11,ion-item#mySecurityDevices-list-item10,ion-item#mySecurityDevices-list-item9 {
+        color: #fff;
+        border-bottom: 1px solid rgba(86, 84, 84, 0.45);
+        background-color: rgba(255, 255, 255, 0.14);
+    }
+    
+    .item-inner {
+        border-bottom: 0px !important;
+    }
+    ion-icon.icon.icon-md {
+        padding: 5px;
+    }
+    
+    ion-icon.icon.icon-md.ion-md-add-circle {
+        color: #ff7b7b;
+    }
+}

@@ -1,0 +1,125 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Account</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content class="signin" padding center text-center>
+    <!-- <ion-item>
+        <p>{{imageURI}}</p>
+        <button ion-button color="secondary" (click)="getImage()">Get Image</button>
+      </ion-item>
+      <ion-item>
+        <h4>Image Preview</h4>
+        <img src="{{imageFileName}}" *ngIf="imageFileName" alt="Ionic File" width="300" />
+      </ion-item>
+      <ion-item>
+        <button ion-button (click)="uploadFile()">Upload</button>
+      </ion-item> -->
+
+      <!--User profile page filelds starts-->
+    <ion-list *ngIf="userdetail">
+     
+          <img class="pimg" [src]="userdetail[0].photo" />
+          <!-- <ion-fab >
+              <button ion-fab mini><ion-icon name="ios-camera-outline" (click)="chooseimg()"></ion-icon></button>
+          </ion-fab> -->
+                 
+      <form [formGroup]="form1"  (ngSubmit)="profileUpdate()">
+         <!-- <div *ngIf="form.errors" class="alertstyle">Please provide username & password</div> -->
+         <ion-fab  right edge *ngIf="editProfile">
+            <button ion-fab  class="sign_btn" (click)="profileactive()" ><ion-icon name="create"></ion-icon></button>
+        </ion-fab>
+        <ion-fab  right edge *ngIf="cancelProfile">
+            <button ion-fab  class="signbtn" (click)="profilecancel()" mini><ion-icon name="close"></ion-icon></button>
+        </ion-fab>
+        <ion-fab  right edge *ngIf="submitProfile">
+            <button ion-fab type="submit" class="sign_btn"  mini><ion-icon name="checkmark"></ion-icon></button>
+        </ion-fab>
+        
+        <ion-item>
+          <ion-label floating>
+            <ion-icon name="contact"></ion-icon>Username</ion-label>
+          <ion-input formControlName="username" disabled="{{isDisable}}" type="text" [(ngModel)]="userdetail[0].username"></ion-input>
+          <ion-input hidden formControlName="user_id" type="text" [(ngModel)]="userdetail[0].user_id"></ion-input>
+          <ion-input hidden formControlName="latitude" type="text" [(ngModel)]="userdetail[0].latitude"></ion-input>
+          <ion-input hidden formControlName="longitude" type="text" [(ngModel)]="userdetail[0].longitude"></ion-input>
+        </ion-item>
+        <!-- <div *ngIf="username.touched && username.invalid" class="alertstyle">
+          <div *ngIf="username.errors.required">Please provide a username</div>
+        </div> -->
+        <ion-item>
+            <ion-label floating>
+              <ion-icon name="mail"></ion-icon> Email</ion-label>
+            <ion-input formControlName="mail" disabled="{{isDisabled}}" type="text" [(ngModel)]="userdetail[0].email_id"></ion-input>
+          </ion-item>
+        <ion-item>
+          <ion-label floating>
+            <ion-icon name="lock"></ion-icon>Password</ion-label>
+          <ion-input formControlName="password" disabled="{{isDisable}}" type="password" [(ngModel)]="userdetail[0].password" ></ion-input>
+        </ion-item>
+        
+        <!-- <div *ngIf="password.touched && password.invalid" class="alertstyle">
+          <div *ngIf="password.errors.required">Please provide a password</div>
+        </div> -->
+         <ion-item>
+          <ion-label ><ion-icon name="pin"></ion-icon>Address</ion-label>
+        </ion-item> 
+        <!-- <ion-item>
+          <ion-label>House No</ion-label>
+          <ion-input formControlName="house" type="text" ></ion-input>
+        </ion-item> -->
+         <ion-item>
+          <ion-label >Street Name</ion-label>
+          <ion-input  formControlName="street" disabled="{{isDisable}}" data-ng-model="userdetail" type="text" data-ng-if="userdetail" value="{{userdetail[0].street_address}}"></ion-input>
+          <!-- <ion-input  formControlName="street" disabled="{{isDisable}}" data-ng-model="locationdata" type="text" data-ng-if="locationdata" value="{{locationdata[0].street}}"></ion-input>  -->
+        </ion-item>    
+        <ion-item>
+          <ion-label >City</ion-label>
+          <ion-input  formControlName="city" disabled="{{isDisable}}" type="text" [(ngModel)]="userdetail[0].city"></ion-input> 
+        </ion-item>    
+        <ion-item>
+          <ion-label >Country</ion-label>
+          <ion-input formControlName="country" disabled="{{isDisable}}" type="text" [(ngModel)]="userdetail[0].country"></ion-input>
+        </ion-item> 
+        <ion-item>
+          <ion-label >Zipcode</ion-label>
+          <ion-input formControlName="pin"  disabled="{{isDisable}}" type="text" [(ngModel)]="userdetail[0].zipcode"></ion-input>
+        </ion-item> 
+    
+        <!-- <button type="submit" class="sign_btn" ion-button  round full>Update</button> -->
+     </form>
+    </ion-list>
+    <!--User profile page filelds end-->
+    <!--Map  starts-->
+    <div #map id="map"></div> 
+  </ion-content>
+<!-- <ion-content padding>
+    <ion-card *ngIf="userdetail">
+        <ion-item>
+            <ion-label floating>
+                <ion-card-header><ion-icon name="contact"></ion-icon>{{ userdetail[0].username }}</ion-card-header></ion-label>
+              <ion-input type="text" value="name"></ion-input>
+        </ion-item>
+         <ion-card-header>{{ userdetail[0].username }}</ion-card-header> 
+         <img [src]="userdetail[0].photo" />
+         <p>Email: {{ userdetail[0].email_id }}</p>
+    </ion-card>
+  <ion-searchbar 
+  [(ngModel)]="autocomplete.query" 
+  [showCancelButton]="true" 
+  (ionInput)="updateSearch()" 
+  (ionCancel)="dismiss()"
+  placeholder="Start typing and select ...">
+</ion-searchbar>
+<ion-list>
+  <ion-item *ngFor="let item of autocompleteItems" 
+      (click)="chooseItem(item)">
+      {{ item.description }}
+  </ion-item>
+</ion-list>
+</ion-content> --> 

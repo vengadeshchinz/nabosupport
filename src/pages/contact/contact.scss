@@ -1,0 +1,25 @@
+page-contact {
+    ion-segment-button.segment-button.segment-activated {
+        background-color: rgba(255, 255, 255, 0.14);
+        border-bottom: 2px solid #fff4f4 !important;
+        color: #fff;
+    }
+    ion-segment-button.segment-button {
+        color: #fff !important;
+    }
+    p {
+        color: #fff;
+        font-size: 16px;
+        font-family: inherit;
+        font-weight: 300;
+    }
+    ion-item#contactList-list-item {
+        background-color: rgba(255, 255, 255, 0.14);
+        color: #fff;
+        border-bottom: 1px solid rgba(86, 84, 84, 0.45);
+    }
+    .item-inner {
+        border-bottom: 0px !important;
+    }
+  
+}
