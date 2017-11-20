@@ -96,7 +96,15 @@
     </ion-list>
     <!--User profile page filelds end-->
     <!--Map  starts-->
+   <ion-content class="map-pin">
     <div #map id="map"></div> 
+    <button ion-button class="map_btn" icon-only (click)='get_user()'>
+      <ion-icon name="ios-locate-outline"></ion-icon>
+    </button>
+    <div id="marker"></div>
+   </ion-content>
+    
+
   </ion-content>
 <!-- <ion-content padding>
     <ion-card *ngIf="userdetail">

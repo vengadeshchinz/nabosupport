@@ -13,9 +13,11 @@
     
          #map {
            width: 100%;
-           height: 50%;
+           height: 100%;
          }
-    
+         ion-icon.icon.icon-md.ion-ios-locate-outline {
+            padding: 7px;
+        }
        }
     
    }
@@ -125,4 +127,47 @@ button.signbtn.fab.fab-md {
 
 ion-icon.icon.icon-md.ion-md-close {
     margin-right: 0px;
+}
+
+#marker {
+    height: 38px;
+    width: 20px;
+   // border: 3px solid blue;
+    border-radius: 50%;
+    background-image: url(../assets/imgs/location_pin.png);
+    background-repeat: no-repeat;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+button.map_btn {
+    position: absolute;
+    background-color: #fff;
+    color: #000000;
+    bottom: 120px;
+    right: 6px;
+    border-radius: 50%;
+}
+
+ion-icon.icon.icon-md.ion-ios-locate-outline {
+    margin-right: 0px;
+}
+
+ion-content.map-pin.content.content-md {
+    overflow-x: hidden !important;
+}
+
+.map-pin .scroll-content {
+    padding: 0px !important;
+    overflow-y: hidden;
+}
+
+ion-content.map-pin.content.content-md {
+    background: #ff7f5000 !important;
+    height: 50%;
+}ion-content.map-pin #marker {
+    width: 5% !important;
+    margin: 0 auto !important;
+    margin-top: -54% !important;
+    position: relative !important;
 }

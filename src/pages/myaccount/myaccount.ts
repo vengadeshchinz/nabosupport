@@ -260,9 +260,11 @@ addMarker(){
      }
      lastLatLng(marker){
        let geocoder = new google.maps.Geocoder();
-       google.maps.event.addListener(marker, 'dragend', () =>{ 
-         this.LastLat1= marker.position.lat();
-         this.LastLng1= marker.position.lng();
+       google.maps.event.addListener(this.map, 'dragend', () =>{ 
+        //  this.LastLat1= marker.position.lat();
+        //  this.LastLng1= marker.position.lng();
+        this.LastLat1=this.map.getCenter().lat();
+        this.LastLng1= this.map.getCenter().lng();
          let latlng = new google.maps.LatLng(this.LastLat1, this.LastLng1);
          let request = { latLng: latlng };
        console.log(this.LastLat1+','+this.LastLng1);
