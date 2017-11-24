@@ -98,10 +98,10 @@
     <!--Map  starts-->
    <ion-content class="map-pin">
     <div #map id="map"></div> 
-    <button ion-button class="map_btn" icon-only (click)='get_user()'>
+    <button *ngIf="submitProfile" ion-button class="map_btn" icon-only (click)='get_position()'>
       <ion-icon name="ios-locate-outline"></ion-icon>
     </button>
-    <div id="marker"></div>
+    <div *ngIf="submitProfile" id="marker"></div>
    </ion-content>
     
 

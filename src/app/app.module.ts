@@ -23,6 +23,7 @@ import { ShopPage } from '../pages/shop/shop';
 import { OfferalarmPage } from '../pages/offeralarm/offeralarm'; 
 import { SecurityPage } from '../pages/security/security';
 import { NotificationPage} from '../pages/notification/notification';
+import { SettingPage } from '../pages/setting/setting';
 import { EmailComposer} from '@ionic-native/email-composer';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms'
@@ -48,6 +49,7 @@ import { Camera } from '@ionic-native/camera';
     OfferalarmPage,
     SecurityPage,
     ContactusPage,
+    SettingPage,
     MapPage
   ],
   imports: [
@@ -70,6 +72,7 @@ import { Camera } from '@ionic-native/camera';
     OfferalarmPage,
     SecurityPage,
     ContactusPage,
+    SettingPage,
     MapPage
   ],
   providers: [

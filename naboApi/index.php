@@ -22,6 +22,11 @@ $app->post('/sendmail','sendmail');
 $app->post('/mycontact','mycontact');
 $app->post('/getMycontact','getMycontact');
 $app->post('/FBlogin','FBlogin');
+$app->post('/getNearuser','getNearuser');
+$app->get('/getUseraddress','getUseraddress');
+$app->post('/outofhome','outofhome');
+$app->post('/rangevalue','rangevalue');
+$app->post('/dnd','dnd');
 $app->run();
 
 
@@ -656,3 +661,128 @@ function FBlogin(){
     }
 	
 }
+function getUseraddress(){
+	
+	  try {
+       $sql = "SELECT user.user_id, username, street_address, zipcode, city, country, longitude, latitude FROM user LEFT JOIN address ON address.user_id = user.user_id";
+       $db = getDB();
+       $smt = $db->prepare($sql);
+	   
+       $smt->execute();
+	   $rows = $smt->fetchAll(PDO::FETCH_ASSOC);
+	   
+	  echo json_encode($rows);
+	 //  $destination_array[] = explode(',', $rows)
+	// print_r( $destination_array) ;
+   // echo '{"status": true,"user_type": "'.$uti.'","user_id": "'.$userid.'"}';
+   } catch (Exception $e) {
+   
+       $data = array('status' => 'False', 'msg' => $e->getMessage());
+   }
+	
+}
+function rangevalue(){
+ $postdata = file_get_contents("php://input");
+ $request = json_decode($postdata);
+   
+		$rng_value = $request->valuedata;
+		$user_id = $request->user_id;
+	//echo $rng_value.','.$user_id;exit;
+	try {
+					   $db = getDB();
+					   $sql = "UPDATE user SET distance=:rang WHERE user_id=:user_id";
+					   $stmt = $db->prepare($sql);
+					   $stmt->bindParam("user_id", $user_id);
+					   $stmt->bindParam("rang", $rng_value);
+					
+					   $stmt->execute();
+					  echo '{"status":true}';
+					   
+				} catch(PDOException $e) {
+					   echo '{"error":{"text":'. $e->getMessage() .'}}';
+				   } 
+				  
+}
+function getNearuser(){
+	//echo "testnear";
+	$postdata = file_get_contents("php://input");
+	//echo $postdata;// exit();
+	$request = json_decode($postdata);
+   
+		$rng_value = $request->valuedata;
+		$user_id = $request->user_id;
+		//$data=range($rng_value,$user_id);
+		//if($data['status']=='TRUE'){
+		
+		$lat=$request->latitude;
+		$lng=$request->longitude;
+		//echo $rng_value.','.$lat.','.$lng;exit;
+		try{
+			$sql="SELECT  latitude, longitude, SQRT( POW( 69.1 * ( latitude - :lat ) , 2 ) + POW( 69.1 * ( :lng - longitude ) * COS( latitude / 57.3 ) , 2 ) ) AS distance FROM address HAVING distance <:rang ORDER BY distance LIMIT 0 , 30";
+			$db = getDB();
+		    $smt = $db->prepare($sql);
+			$smt->bindParam(':rang', $rng_value);
+			$smt->bindParam(':lat', $lat);
+			$smt->bindParam(':lng', $lng);
+		    $smt->execute();
+		    $rows = $smt->fetchAll(PDO::FETCH_ASSOC);
+	   
+	  echo json_encode($rows);
+			}
+			 catch (Exception $e) {
+   
+       $data = array('status' => 'False', 'msg' => $e->getMessage());
+   }
+		/* }else{
+		echo "range not store";} */
+	
+}
+
+function outofhome(){
+	$postdata = file_get_contents("php://input");
+//	print_r($postdata);exit;
+	  $request = json_decode($postdata);
+		$ooh = $request->outofhome;
+		$userid=$request->user_id;		
+		//echo $ooh.','.$userid;exit;
+	   try {
+					   $db = getDB();
+					   $sql = "UPDATE user SET out_of_home=:ooh WHERE user_id=:user_id";
+					   $stmt = $db->prepare($sql);
+					   $stmt->bindParam("user_id", $userid);
+					   $stmt->bindParam("ooh", $ooh);
+					   $stmt->execute();
+					   echo '{"status":true}';
+				} catch(PDOException $e) {
+					   echo '{"error":{"text":'. $e->getMessage() .'}}';
+				   }
+}
+function dnd(){
+	$postdata = file_get_contents("php://input");
+	//print_r($postdata);
+	  $request = json_decode($postdata);
+	
+		$dnd = $request->notify;
+		$userid=$request->user_id;		
+		//echo $dnd;
+		if($dnd=="true"){
+			$dnd_chg=1;
+			}else{
+			$dnd_chg=0;
+			}
+			//echo $dnd_chg.','.$userid;exit;
+	   try {
+					   $db = getDB();
+					   $sql = "UPDATE user SET do_not_distrub=:dnd WHERE user_id=:user_id";
+					   $stmt = $db->prepare($sql);
+					   $stmt->bindParam("user_id", $userid);
+					   $stmt->bindParam("dnd", $dnd_chg);
+					
+					   $stmt->execute();
+					   echo '{"status":true}';
+				} catch(PDOException $e) {
+					   echo '{"error":{"text":'. $e->getMessage() .'}}';
+				   }
+}
+   
+

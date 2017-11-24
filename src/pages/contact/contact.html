@@ -49,7 +49,7 @@
                        <ion-item>
                          <ion-label floating>
                            <ion-icon name="ios-phone-portrait-outline"></ion-icon> PHONE NUMBER</ion-label>
-                         <ion-input type="number"  formControlName="phone" [(ngModel)]="userData.phone"></ion-input>
+                         <ion-input type="number"  formControlName="phone" max="10" [(ngModel)]="userData.phone"></ion-input>
                        </ion-item>
                        <p>( To add multiple volunteersplease become a paid member )</p>
                         <button type="submit" class="sign_btn" ion-button  round full>Add</button>

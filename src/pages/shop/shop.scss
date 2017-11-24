@@ -7,4 +7,19 @@ page-shop {
     ion-segment-button.segment-button {
         color: #fff !important;
     }
+    ion-col.col {
+        text-align: center;
+    }
+    ion-card.card.card-md {
+        background-color: rgba(45, 42, 42, 0);
+        margin: 0px;
+        padding: 5px;
+        width: 100%;
+        color: #fff;
+        margin: 0px;
+        padding: 5px;
+        width: 100%;
+        color: #fff;
+    }
+  
 }

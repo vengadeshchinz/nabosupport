@@ -6,200 +6,216 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-      <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
         </button>
-    <ion-title>Shop</ion-title>
-  </ion-navbar>
+        <ion-title>Shop</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
-      
 
-      
-      <ion-content>
-          <ion-segment [(ngModel)]="shop">
-              <ion-segment-button value="stricker">
-                STICKERS
-              </ion-segment-button>
-              <ion-segment-button value="random">
-                RANDOM STICKERS
-              </ion-segment-button>
-              <ion-segment-button value="light">
-                LIGHT
-              </ion-segment-button>
-            </ion-segment>
-            
-        <div [ngSwitch]="shop">
-          <ion-list *ngSwitchCase="'stricker'">
-              <ion-grid>
-                  <ion-row>
+
+
+<ion-content>
+    <ion-segment [(ngModel)]="shop">
+        <ion-segment-button value="stricker">
+            STICKERS
+        </ion-segment-button>
+        <ion-segment-button value="random">
+            RANDOM STICKERS
+        </ion-segment-button>
+        <ion-segment-button value="light">
+            LIGHT
+        </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="shop">
+        <ion-list *ngSwitchCase="'stricker'">
+            <ion-grid>
+                <ion-row>
                     <ion-col col-6>
-                        <ion-thumbnail item-start>
-                        <img src="assets/img/thumbnail-puppy-1.jpg">
-                        </ion-thumbnail>
-                        <p>Stripped</p>
-                        <p>$39</p>
+                        <ion-card>
+                            <img src="assets/imgs/circle.png">
+                            <div class="card-title">Stripped</div>
+                            <div class="card-subtitle">$39</div>
+                        </ion-card>
                     </ion-col>
                     <ion-col col-6>
-                        <ion-thumbnail item-start>
-                        <img src="assets/img/thumbnail-puppy-1.jpg">
-                        </ion-thumbnail>
-                        <p>Round</p>
-                        <p>$39</p>
+                        <ion-card>
+                            <img src="assets/imgs/circle.png">
+                            <div class="card-title">Round</div>
+                            <div class="card-subtitle">$39</div>
+                        </ion-card>
                     </ion-col>
-                   
-                  </ion-row>
-                  <ion-row>
-                      <ion-col col-6>
-                          <ion-thumbnail item-start>
-                          <img src="assets/img/thumbnail-puppy-1.jpg">
-                          </ion-thumbnail>
-                          <p>Rectangle</p>
-                          <p>$39</p>
-                      </ion-col>
-                      <ion-col col-6>
-                          <ion-thumbnail item-start>
-                          <img src="assets/img/thumbnail-puppy-1.jpg">
-                          </ion-thumbnail>
-                          <p>Triangle</p>
-                          <p>$99</p>
-                      </ion-col>
+
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>
+                        <ion-card>
+                            <img src="assets/imgs/circle.png">
+                            <div class="card-title">Rectangle</div>
+                            <div class="card-subtitle">$39</div>
+                        </ion-card>
+
+                    </ion-col>
+                    <ion-col col-6>
+                        <ion-card>
+                            <img src="assets/imgs/circle.png">
+                            <div class="card-title">Triangle</div>
+                            <div class="card-subtitle">$99</div>
+                        </ion-card>
+
+                    </ion-col>
+
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>
+                            <ion-card>
+                                    <img src="assets/imgs/circle.png">
+                                    <div class="card-title">Octgon</div>
+                                    <div class="card-subtitle">$39</div>
+                                </ion-card>
                      
-                    </ion-row>
-                    <ion-row>
-                        <ion-col col-6>
-                            <ion-thumbnail item-start>
-                            <img src="assets/img/thumbnail-puppy-1.jpg">
-                            </ion-thumbnail>
-                            <p>Octgon</p>
-                            <p>$39</p>
-                        </ion-col>
-                        <ion-col col-6>
-                            <ion-thumbnail item-start>
-                            <img src="assets/img/thumbnail-puppy-1.jpg">
-                            </ion-thumbnail>
-                            <p>Ovel</p>
-                            <p>$39</p>
-                        </ion-col>
+                    </ion-col>
+                    <ion-col col-6>
+                            <ion-card>
+                                    <img src="assets/imgs/circle.png">
+                                    <div class="card-title">Ovel</div>
+                                    <div class="card-subtitle">$39</div>
+                                </ion-card>
                        
-                      </ion-row>
-                </ion-grid>
-            
-          </ion-list>
-      
-          <ion-list *ngSwitchCase="'random'">
-              <ion-grid>
-                  <ion-row>
-                    <ion-col col-6>
-                        <ion-thumbnail item-start>
-                        <img src="assets/img/thumbnail-puppy-1.jpg">
-                        </ion-thumbnail>
-                        <p>Stripped</p>
-                        <p>$39</p>
                     </ion-col>
+
+                </ion-row>
+            </ion-grid>
+
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'random'">
+            <ion-grid>
+                <ion-row>
                     <ion-col col-6>
-                        <ion-thumbnail item-start>
-                        <img src="assets/img/thumbnail-puppy-1.jpg">
-                        </ion-thumbnail>
-                        <p>Round</p>
-                        <p>$39</p>
-                    </ion-col>
+                            <ion-card>
+                                    <img src="assets/imgs/circle.png">
+                                    <div class="card-title">Stripped</div>
+                                    <div class="card-subtitle">$39</div>
+                                </ion-card>
                    
-                  </ion-row>
-                  <ion-row>
-                      <ion-col col-6>
-                          <ion-thumbnail item-start>
-                          <img src="assets/img/thumbnail-puppy-1.jpg">
-                          </ion-thumbnail>
-                          <p>Rectangle</p>
-                          <p>$39</p>
-                      </ion-col>
-                      <ion-col col-6>
-                          <ion-thumbnail item-start>
-                          <img src="assets/img/thumbnail-puppy-1.jpg">
-                          </ion-thumbnail>
-                          <p>Triangle</p>
-                          <p>$99</p>
-                      </ion-col>
-                     
-                    </ion-row>
-                    <ion-row>
-                        <ion-col col-6>
-                            <ion-thumbnail item-start>
-                            <img src="assets/img/thumbnail-puppy-1.jpg">
-                            </ion-thumbnail>
-                            <p>Octgon</p>
-                            <p>$39</p>
-                        </ion-col>
-                        <ion-col col-6>
-                            <ion-thumbnail item-start>
-                            <img src="assets/img/thumbnail-puppy-1.jpg">
-                            </ion-thumbnail>
-                            <p>Ovel</p>
-                            <p>$39</p>
-                        </ion-col>
-                       
-                      </ion-row>
-                </ion-grid>
-          </ion-list>
-      
-          <ion-list *ngSwitchCase="'light'">
-              <ion-grid>
-                  <ion-row>
-                    <ion-col col-6>
-                        <ion-thumbnail item-start>
-                        <img src="assets/img/thumbnail-puppy-1.jpg">
-                        </ion-thumbnail>
-                        <p>Stripped</p>
-                        <p>$39</p>
                     </ion-col>
                     <ion-col col-6>
-                        <ion-thumbnail item-start>
-                        <img src="assets/img/thumbnail-puppy-1.jpg">
-                        </ion-thumbnail>
-                        <p>Round</p>
-                        <p>$39</p>
-                    </ion-col>
-                   
-                  </ion-row>
-                  <ion-row>
-                      <ion-col col-6>
-                          <ion-thumbnail item-start>
-                          <img src="assets/img/thumbnail-puppy-1.jpg">
-                          </ion-thumbnail>
-                          <p>Rectangle</p>
-                          <p>$39</p>
-                      </ion-col>
-                      <ion-col col-6>
-                          <ion-thumbnail item-start>
-                          <img src="assets/img/thumbnail-puppy-1.jpg">
-                          </ion-thumbnail>
-                          <p>Triangle</p>
-                          <p>$99</p>
-                      </ion-col>
-                     
-                    </ion-row>
-                    <ion-row>
-                        <ion-col col-6>
-                            <ion-thumbnail item-start>
-                            <img src="assets/img/thumbnail-puppy-1.jpg">
-                            </ion-thumbnail>
-                            <p>Octgon</p>
-                            <p>$39</p>
-                        </ion-col>
-                        <ion-col col-6>
-                            <ion-thumbnail item-start>
-                            <img src="assets/img/thumbnail-puppy-1.jpg">
-                            </ion-thumbnail>
-                            <p>Ovel</p>
-                            <p>$39</p>
-                        </ion-col>
+                            <ion-card>
+                                    <img src="assets/imgs/circle.png">
+                                    <div class="card-title">Round</div>
+                                    <div class="card-subtitle">$39</div>
+                                </ion-card>
                        
-                      </ion-row>
-                </ion-grid>
-          </ion-list>
-        </div>
+                    </ion-col>
+
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>
+                            <ion-card>
+                                    <img src="assets/imgs/circle.png">
+                                    <div class="card-title">Rectangle</div>
+                                    <div class="card-subtitle">$39</div>
+                                </ion-card>
+                       
+                    </ion-col>
+                    <ion-col col-6>
+                            <ion-card>
+                                    <img src="assets/imgs/circle.png">
+                                    <div class="card-title">Triangle</div>
+                                    <div class="card-subtitle">$99</div>
+                                </ion-card>
+                        
+                    </ion-col>
+
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>
+                            <ion-card>
+                                    <img src="assets/imgs/circle.png">
+                                    <div class="card-title">Octgon</div>
+                                    <div class="card-subtitle">$39</div>
+                                </ion-card>
+                     
+                    </ion-col>
+                    <ion-col col-6>
+                            <ion-card>
+                                    <img src="assets/imgs/circle.png">
+                                    <div class="card-title">Ovel</div>
+                                    <div class="card-subtitle">$39</div>
+                                </ion-card>
+                       
+                    </ion-col>
+
+                </ion-row>
+            </ion-grid>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'light'">
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-6>
+                            <ion-card>
+                                    <img src="assets/imgs/circle.png">
+                                    <div class="card-title">Stripped</div>
+                                    <div class="card-subtitle">$39</div>
+                                </ion-card>
+                     
+                    </ion-col>
+                    <ion-col col-6>
+                            <ion-card>
+                                    <img src="assets/imgs/circle.png">
+                                    <div class="card-title">Round</div>
+                                    <div class="card-subtitle">$39</div>
+                                </ion-card>
+                     
+                    </ion-col>
+
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>
+                            <ion-card>
+                                    <img src="assets/imgs/circle.png">
+                                    <div class="card-title">Rectangle</div>
+                                    <div class="card-subtitle">$39</div>
+                                </ion-card>
+                      
+                    </ion-col>
+                    <ion-col col-6>
+                            <ion-card>
+                                    <img src="assets/imgs/circle.png">
+                                    <div class="card-title">Triangle</div>
+                                    <div class="card-subtitle">$39</div>
+                                </ion-card>
+                        
+                    </ion-col>
+
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>
+                            <ion-card>
+                                    <img src="assets/imgs/circle.png">
+                                    <div class="card-title">Octgon</div>
+                                    <div class="card-subtitle">$39</div>
+                                </ion-card>
+                       
+                    </ion-col>
+                    <ion-col col-6>
+                            <ion-card>
+                                    <img src="assets/imgs/circle.png">
+                                    <div class="card-title">Ovel</div>
+                                    <div class="card-subtitle">$39</div>
+                                </ion-card>
+                      
+                    </ion-col>
+
+                </ion-row>
+            </ion-grid>
+        </ion-list>
+    </div>
 
 </ion-content>

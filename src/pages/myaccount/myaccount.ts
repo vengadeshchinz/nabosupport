@@ -92,7 +92,22 @@ get country() {
 
   this.ionViewDidLoad();
   }
+  get_position(){
+    this.options = {
+      enableHighAccuracy : true
+ };
 
+  this.geolocation.getCurrentPosition(this.options).then((pos : Geoposition) => {
+
+      this.currentPos = pos;      
+      console.log(pos);
+      console.log(pos.coords.latitude+','+pos.coords.longitude)
+      //this.addMap(pos.coords.latitude,pos.coords.longitude);
+    this.addMap(pos.coords.latitude,pos.coords.longitude);
+  },(err : PositionError)=>{
+     console.log("error : " + err.message);
+  });
+  }
   /*##get login user details Start##*/
   get_user(){
     var userdata= JSON.parse(localStorage.getItem('userData'));
@@ -107,7 +122,7 @@ get country() {
       this.submitProfile=false;
       this.cancelProfile=false;
       this.isDisabled=true;
-      this.addMap(user_detail[0].longitude,user_detail[0].latitude);
+      this.addMap(user_detail[0].latitude,user_detail[0].longitude);
      })
 }
  /*##get login user details end##*/
@@ -232,24 +247,25 @@ updateSearch() {
        let latLng = new google.maps.LatLng(lat, long);
        let mapOptions = {
        center: latLng,
-       zoom: 15,
-       mapTypeId: google.maps.MapTypeId.ROADMAP,
-       styles: [{ "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#e9e9e9" }, { "lightness": 17 }] }, { "featureType": "landscape", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 20 }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#ffffff" }, { "lightness": 17 }] }, { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [{ "color": "#ffffff" }, { "lightness": 29 }, { "weight": 0.2 }] }, { "featureType": "road.arterial", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 18 }] }, { "featureType": "road.local", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 16 }] }, { "featureType": "poi", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 21 }] }, { "featureType": "poi.park", "elementType": "geometry", "stylers": [{ "color": "#dedede" }, { "lightness": 21 }] }, { "elementType": "labels.text.stroke", "stylers": [{ "visibility": "on" }, { "color": "#ffffff" }, { "lightness": 16 }] }, { "elementType": "labels.text.fill", "stylers": [{ "saturation": 36 }, { "color": "#333333" }, { "lightness": 40 }] }, { "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "transit", "elementType": "geometry", "stylers": [{ "color": "#f2f2f2" }, { "lightness": 19 }] }, { "featureType": "administrative", "elementType": "geometry.fill", "stylers": [{ "color": "#fefefe" }, { "lightness": 20 }] }, { "featureType": "administrative", "elementType": "geometry.stroke", "stylers": [{ "color": "#fefefe" }, { "lightness": 17 }, { "weight": 1.2 }] }]
+       zoom: 10,
+       mapTypeId: google.maps.MapTypeId.ROADMAP
+      // styles: [{ "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#e9e9e9" }, { "lightness": 17 }] }, { "featureType": "landscape", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 20 }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#ffffff" }, { "lightness": 17 }] }, { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [{ "color": "#ffffff" }, { "lightness": 29 }, { "weight": 0.2 }] }, { "featureType": "road.arterial", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 18 }] }, { "featureType": "road.local", "elementType": "geometry", "stylers": [{ "color": "#ffffff" }, { "lightness": 16 }] }, { "featureType": "poi", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }, { "lightness": 21 }] }, { "featureType": "poi.park", "elementType": "geometry", "stylers": [{ "color": "#dedede" }, { "lightness": 21 }] }, { "elementType": "labels.text.stroke", "stylers": [{ "visibility": "on" }, { "color": "#ffffff" }, { "lightness": 16 }] }, { "elementType": "labels.text.fill", "stylers": [{ "saturation": 36 }, { "color": "#333333" }, { "lightness": 40 }] }, { "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "transit", "elementType": "geometry", "stylers": [{ "color": "#f2f2f2" }, { "lightness": 19 }] }, { "featureType": "administrative", "elementType": "geometry.fill", "stylers": [{ "color": "#fefefe" }, { "lightness": 20 }] }, { "featureType": "administrative", "elementType": "geometry.stroke", "stylers": [{ "color": "#fefefe" }, { "lightness": 17 }, { "weight": 1.2 }] }]
        }
    
        this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
        this.addMarker();
    }
 addMarker(){
-     
+  let nabo_img = 'http://rayi.in/naboApi/mapicon/nabo_home.png';
          let marker = new google.maps.Marker({
          map: this.map,
          animation: google.maps.Animation.DROP,
-         draggable:true,
-         position: this.map.getCenter()
+      
+         position: this.map.getCenter(),
+         icon:nabo_img,
          });
      
-         let content = "<p>This is your current position !</p>";          
+         let content = "<p>This is your position !</p>";          
          let infoWindow = new google.maps.InfoWindow({
          content: content
          });
@@ -265,6 +281,9 @@ addMarker(){
         //  this.LastLng1= marker.position.lng();
         this.LastLat1=this.map.getCenter().lat();
         this.LastLng1= this.map.getCenter().lng();
+        var coord = new Array();
+        coord.push(this.LastLat1,this.LastLng1);      
+       console.log(coord[0]+','+coord[1]);
          let latlng = new google.maps.LatLng(this.LastLat1, this.LastLng1);
          let request = { latLng: latlng };
        console.log(this.LastLat1+','+this.LastLng1);
@@ -285,10 +304,28 @@ addMarker(){
             
           }
         //console.log(locdata);
-          if(data.length == 8) {
+        if(data.length==6){
+          this.userdetail[0].street_address=data[0];
+          this.userdetail[0].country=data[4];
+          this.userdetail[0].city=data[2];
+          this.userdetail[0].zipcode=data[5];
+          this.userdetail[0].latitude=coord[0];
+          this.userdetail[0].longitude=coord[1];
+        }else if(data.length==7){
+          this.userdetail[0].street_address=data[0];
+          this.userdetail[0].country=data[5];
+          this.userdetail[0].city=data[2];
+          this.userdetail[0].zipcode=data[6];
+          this.userdetail[0].latitude=coord[0];
+          this.userdetail[0].longitude=coord[1];
+        }
+          else if(data.length == 8) {
             this.userdetail[0].street_address=data[0];
-            this.userdetail[0].country=data[1];
+            this.userdetail[0].country=data[6];
             this.userdetail[0].city=data[4];
+            this.userdetail[0].zipcode=data[5];
+            this.userdetail[0].latitude=coord[0];
+            this.userdetail[0].longitude=coord[1];
             // var locdata = {
             //                 hus:data[0],
             //                 street:data[1],
@@ -298,8 +335,11 @@ addMarker(){
             //console.log(locationdata);
           } else if(data.length == 9){
             this.userdetail[0].street_address=data[0];
-            this.userdetail[0].country=data[1];
-            this.userdetail[0].city=data[3];
+            this.userdetail[0].country=data[7];
+            this.userdetail[0].city=data[4];
+            this.userdetail[0].zipcode=data[8];
+            this.userdetail[0].latitude=coord[0];
+            this.userdetail[0].longitude=coord[1];
                   // var locdata = {
                   //               hus:data[0],
                   //               street:data[1],
@@ -309,8 +349,11 @@ addMarker(){
            // console.log(locationdata);
           } else if(data.length == 10){
             this.userdetail[0].street_address=data[0];
-            this.userdetail[0].country=data[1];
+            this.userdetail[0].country=data[8];
             this.userdetail[0].city=data[5];
+            this.userdetail[0].zipcode=data[9];
+            this.userdetail[0].latitude=coord[0];
+            this.userdetail[0].longitude=coord[1];
             //       var locdata = {
             //                     hus:data[0],
             //                     street:data[1],

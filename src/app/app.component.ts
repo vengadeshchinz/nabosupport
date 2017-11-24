@@ -13,14 +13,13 @@ import{ ShopPage } from '../pages/shop/shop';
 import { OfferalarmPage } from '../pages/offeralarm/offeralarm'; 
 import { SecurityPage } from '../pages/security/security';
 import{NotificationPage} from '../pages/notification/notification';
-
+import { SettingPage } from '../pages/setting/setting';
   
 export interface PageInterface {
   title: string;
   component: any;
   icon: string;
 }
-
 @Component({
   templateUrl: 'app.html'
 })
@@ -44,6 +43,7 @@ pages:Array<{title:string,component:any,icon:any}>;
       { title: 'Offer & Alarm', component: OfferalarmPage, icon: 'ios-pricetags-outline' },
       { title: 'About', component: AboutPage, icon: 'ios-information-circle-outline' },
       { title: 'Contact', component: ContactusPage, icon: 'ios-call-outline' },
+      { title: 'User Setting', component: SettingPage, icon: 'settings' },
       { title: 'Logout',  component: SigninPage, icon: 'log-out' }
       
     // { title: 'logout', component: null, icon: 'log-out' }
@@ -59,5 +59,7 @@ pages:Array<{title:string,component:any,icon:any}>;
   openPage(page){
     this.nav.setRoot(page.component);
   }
+  
+  
 }
 

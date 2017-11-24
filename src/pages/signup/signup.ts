@@ -139,7 +139,7 @@ getUserPosition(){
        this.currentPos = pos;
        var coord = new Array();
        coord.push(pos.coords.latitude,pos.coords.longitude);      
-      // console.log(pos);
+      console.log(coord[0]+','+coord[1]);
       // this.addMap(pos.coords.latitude,pos.coords.longitude);
       let latlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
       let request = { latLng: latlng };
